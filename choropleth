@@ -1,0 +1,45 @@
+import folium
+
+# 地図の基準として兵庫県明石市を設定
+japan_location = [35, 135]
+do = folium.Map(location=japan_location, zoom_start=5)
+geojson = r'japan.geojson'
+
+#--------
+
+import codecs
+import pandas as pd 
+
+with codecs.open('elementaryparttimer.csv', 'r', 'utf-8', 'ignore') as f:
+    data = pd.read_csv(f)
+
+#--------
+data2 = data.drop(['Unnamed: 0','Unnamed: 3'], axis=1)
+data2.head() 
+data2.astype(int)
+
+#---------
+
+def main():
+
+    # 地図の基準として兵庫県明石市を設定
+    japan_location = [35, 135]
+    do = folium.Map(location=japan_location, zoom_start=5)
+    geojson = r'japan.geojson'
+
+    # CSVデータの読み込み
+    folium.Choropleth(
+    geo_data=geojson,
+    data=data2,
+    columns=['region', 'num of parttimers'],
+    key_on='feature.properties.region',
+    fill_color='YlGnBu', fill_opacity=0.7, line_opacity=0.2,
+    reset = True).add_to(do)
+    # 地図をhtml形式で出力
+    m.save(outfile="mapdo.html")
+
+if __name__ == "__main__":
+    main()
+
+
+
