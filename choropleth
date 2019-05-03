@@ -10,7 +10,7 @@ geojson = r'japan.geojson'
 import codecs
 import pandas as pd 
 
-with codecs.open('testdata.csv', 'r', 'utf-8', 'ignore') as f:
+with codecs.open('ppteacher.csv', 'r', 'utf-8', 'ignore') as f:
     data = pd.read_csv(f)
 
 #--------
