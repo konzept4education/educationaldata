@@ -34,7 +34,8 @@ def main():
     columns=['region', 'numbers'],
     key_on='feature.properties.region',
     legend_name='Number of Parttime Teachers'
-    fill_color='YlGnBu', fill_opacity=0.7, line_opacity=0.2, reset = True).add_to(do)
+    fill_color='YlGnBu', fill_opacity=0.7, line_opacity=0.2, reset = True).add_to(do),
+    threshold_scale=[50, 100, 500, 1000, 1500, 2000],
     # 地図をhtml形式で出力
     do.save(outfile="mapdo.html")
 
