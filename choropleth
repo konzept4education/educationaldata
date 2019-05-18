@@ -1,8 +1,11 @@
 import folium
+import wget
 
 # 地図の基準として兵庫県明石市を設定
 japan_location = [35, 135]
 do = folium.Map(location=japan_location, zoom_start=5)
+
+japan.geojson = wget https://raw.githubusercontent.com/dataofjapan/land/master/japan.geojson
 geojson = r'japan.geojson'
 
 #--------
